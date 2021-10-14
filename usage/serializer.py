@@ -1,11 +1,11 @@
 from rest_framework import serializers
 
-from .models import Usage, Usage_type
+from .models import Usage, UsageType
 
 
 class UsageTypeSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Usage_type
+        model = UsageType
         fields = ('__all__')
 
 
