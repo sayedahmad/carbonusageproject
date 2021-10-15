@@ -8,6 +8,7 @@ from .views import (
     UsageCreateView,
     UsageUpdateView,
     UsageDeleteView,
+    UsageView,
 )
 
 urlpatterns = [
@@ -17,7 +18,8 @@ urlpatterns = [
     path('type/delete/<int:id>', UsageTypeDeleteView.as_view(),
          name='usagetypedelete'),
 
-    path('', UsageCreateView.as_view(), name='usage'),
+    path('', UsageView.as_view(), name='usage'),
+    path('add/', UsageCreateView.as_view(), name='usage'),
     path('update/<int:pk>/', UsageUpdateView.as_view(), name='usageupdate'),
     path('delete/<int:pk>/', UsageDeleteView.as_view(), name='usagedelete'),
 ]
