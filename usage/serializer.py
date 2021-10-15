@@ -1,6 +1,7 @@
 from rest_framework import serializers
 
 from .models import Usage, UsageType
+from user.models import User
 
 
 class UsageTypeSerializer(serializers.ModelSerializer):
@@ -12,4 +13,4 @@ class UsageTypeSerializer(serializers.ModelSerializer):
 class UsageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Usage
-        fields = ('__all__')
+        fields = ("__all__")
