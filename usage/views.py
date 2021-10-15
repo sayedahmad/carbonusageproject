@@ -7,6 +7,7 @@ from rest_framework.generics import (
     ListCreateAPIView,
     UpdateAPIView,
 )
+from rest_framework.pagination import PageNumberPagination
 from .models import Usage, UsageType
 from .serializer import UsageTypeSerializer, UsageSerializer
 # Create your views here
@@ -15,6 +16,8 @@ from .serializer import UsageTypeSerializer, UsageSerializer
 class UsageTypeView(ListAPIView):
     queryset = UsageType.objects.all()
     serializer_class = UsageTypeSerializer
+    pagination_class = PageNumberPagination
+
 
 class UsageTypeCreateView(ListCreateAPIView):
     queryset = UsageType.objects.all()
@@ -24,6 +27,8 @@ class UsageTypeCreateView(ListCreateAPIView):
 class UsageTypeUpdateView(UpdateAPIView):
     queryset = UsageType.objects.all()
     serializer_class = UsageSerializer
+
+
 class UsageTypeDeleteView(DestroyAPIView):
     queryset = UsageType.objects.all()
     serializer_class = UsageSerializer
@@ -32,11 +37,14 @@ class UsageTypeDeleteView(DestroyAPIView):
 class UsageCreateView(ListCreateAPIView):
     queryset = Usage.objects.all()
     serializer_class = UsageSerializer
+    pagination_class = PageNumberPagination
 
 
 class UsageUpdateView(UpdateAPIView):
     queryset = Usage.objects.all()
     serializer_class = UsageSerializer
+
+
 class UsageDeleteView(DestroyAPIView):
     queryset = Usage.objects.all()
     serializer_class = UsageSerializer

@@ -5,6 +5,7 @@ from rest_framework.generics import (
     UpdateAPIView, 
     DestroyAPIView
 )
+from rest_framework.pagination import PageNumberPagination
 
 from .serializer import UserSerializer
 from .models import User
@@ -15,6 +16,7 @@ from .models import User
 class UserView(ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    pagination_class=PageNumberPagination
 
 
 class UserUpdateView(UpdateAPIView):
