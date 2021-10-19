@@ -25,19 +25,19 @@ class UsageTypeView(ListAPIView):
 
 class UsageTypeCreateView(ListCreateAPIView):
     queryset = UsageType.objects.all()
-    serializer_class = UsageSerializer
+    serializer_class = UsageTypeSerializer
     permission_classes = (IsAuthenticated,)
 
 
 class UsageTypeUpdateView(UpdateAPIView):
     queryset = UsageType.objects.all()
-    serializer_class = UsageSerializer
+    serializer_class = UsageTypeSerializer
     permission_classes = (IsAuthenticated,)
 
 
 class UsageTypeDeleteView(DestroyAPIView):
     queryset = UsageType.objects.all()
-    serializer_class = UsageSerializer
+    serializer_class = UsageTypeSerializer
     permission_classes = (IsAuthenticated,)
 
 
