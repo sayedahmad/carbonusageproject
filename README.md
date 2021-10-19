@@ -21,4 +21,4 @@ To run the Application perform the following commands:
 * `docker exec -it cusage /bin/bash` to login into the container and create superuser with the following commands 
 *  `python manage.py createsuperuser` 
 
-with the above commands the REST API application should succesfully run. The API will be ready for use. for more information on how to use the AIP please refer to the documentation. 
+with the above commands the REST API application should succesfully run. The API will be ready for use. for more information on how to use the AIP please refer to the [documentation](https://github.com/ssahim/carbonusageproject/wiki). 
