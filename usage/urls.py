@@ -13,6 +13,7 @@ from .views import (
 
 urlpatterns = [
     path('type/', UsageTypeView.as_view(), name='usagetype'),
+    path('type/add/', UsageTypeCreateView.as_view(), name='usagetype'),
     path('type/update/<int:id>', UsageTypeUpdateView.as_view(),
          name='usagetypeupdate'),
     path('type/delete/<int:id>', UsageTypeDeleteView.as_view(),

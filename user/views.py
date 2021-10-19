@@ -1,31 +1,35 @@
-from django.shortcuts import render
+from rest_framework import permissions
+from django.contrib.auth import get_user_model  # If used custom user model
+from django.contrib.auth.models import User  # Builtiin User Model
 from rest_framework.generics import (
-    ListAPIView, 
-    ListCreateAPIView, 
-    UpdateAPIView, 
-    DestroyAPIView
+    ListAPIView,
+    ListCreateAPIView,
+    UpdateAPIView,
+    DestroyAPIView,
 )
-from rest_framework.pagination import PageNumberPagination
-from rest_framework.permissions import IsAuthenticated
-
 from .serializer import UserSerializer
-from .models import User
-
-# Create your views here.
 
 
-class UserView(ListCreateAPIView):
-    queryset = User.objects.all()
+class CreateUserView(ListCreateAPIView):
+
+    model = get_user_model()
+    permission_classes = [
+        permissions.IsAdminUser  # Or anon users can't register
+    ]
     serializer_class = UserSerializer
-    pagination_class=PageNumberPagination
-    permission_classes = (IsAuthenticated,)
+    queryset = User.objects.all()
 
 
 class UserUpdateView(UpdateAPIView):
+    model = get_user_model()
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = (IsAuthenticated,)
+    # permission_classes = (IsAuthenticated,)
+    #
+
+
 class UserDeleteView(DestroyAPIView):
+    model = get_user_model()
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = (IsAuthenticated,)
+    # permission_classes = (IsAuthenticated,)
