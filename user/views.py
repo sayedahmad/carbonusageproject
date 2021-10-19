@@ -24,12 +24,15 @@ class UserUpdateView(UpdateAPIView):
     model = get_user_model()
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    # permission_classes = (IsAuthenticated,)
-    #
+    permission_classes = [
+        permissions.IsAdminUser  # Or anon users can't update
+    ]
 
 
 class UserDeleteView(DestroyAPIView):
     model = get_user_model()
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    # permission_classes = (IsAuthenticated,)
+    permission_classes = [
+        permissions.IsAdminUser  # Or anon users can't delete
+    ]
