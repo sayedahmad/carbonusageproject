@@ -20,60 +20,61 @@ class UsageTypeView(ListAPIView):
     queryset = UsageType.objects.all()
     serializer_class = UsageTypeSerializer
     pagination_class = PageNumberPagination
-    permission_classes = (IsAuthenticated,)
+    # permission_classes = (IsAuthenticated,)
 
 
 class UsageTypeCreateView(ListCreateAPIView):
     queryset = UsageType.objects.all()
     serializer_class = UsageSerializer
-    permission_classes = (IsAuthenticated,)
+    # permission_classes = (IsAuthenticated,)
 
 
 class UsageTypeUpdateView(UpdateAPIView):
     queryset = UsageType.objects.all()
     serializer_class = UsageSerializer
-    permission_classes = (IsAuthenticated,)
+    # permission_classes = (IsAuthenticated,)
 
 
 class UsageTypeDeleteView(DestroyAPIView):
     queryset = UsageType.objects.all()
     serializer_class = UsageSerializer
-    permission_classes = (IsAuthenticated,)
+    # permission_classes = (IsAuthenticated,)
 
 
 class UsageView(ListAPIView):
     serializer_class = UsageSerializer
     pagination_class = PageNumberPagination
-    permission_classes = (IsAuthenticated,)
+    # permission_classes = (IsAuthenticated,)
 
     def get_queryset(self):
         sort = self.request.query_params.get('sort')
         startdate = self.request.query_params.get('startdate')
         enddate = self.request.query_params.get('enddate')
-        queryset=Usage.objects.all()
-        if sort=="asc":
-            queryset=Usage.objects.order_by('usage_at')
-        if sort=="desc":
-            queryset=Usage.objects.order_by('-usage_at')
+        queryset = Usage.objects.all()
+        if sort == "asc":
+            queryset = Usage.objects.order_by('usage_at')
+        if sort == "desc":
+            queryset = Usage.objects.order_by('-usage_at')
         if startdate and enddate:
-            queryset=Usage.objects.filter(usage_at__gte=startdate, usage_at__lte=enddate)
-       
+            queryset = Usage.objects.filter(
+                usage_at__gte=startdate, usage_at__lte=enddate)
+
         return queryset
 
 
 class UsageCreateView(ListCreateAPIView):
     serializer_class = UsageSerializer
     pagination_class = PageNumberPagination
-    permission_classes = (IsAuthenticated,)
+    # permission_classes = (IsAuthenticated,)
 
 
 class UsageUpdateView(UpdateAPIView):
     queryset = Usage.objects.all()
     serializer_class = UsageSerializer
-    permission_classes = (IsAuthenticated,)
+    # permission_classes = (IsAuthenticated,)
 
 
 class UsageDeleteView(DestroyAPIView):
     queryset = Usage.objects.all()
     serializer_class = UsageSerializer
-    permission_classes = (IsAuthenticated,)
+    # permission_classes = (IsAuthenticated,)
