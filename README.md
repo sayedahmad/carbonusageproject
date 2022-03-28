@@ -26,6 +26,4 @@ To run the Application perform the following commands:
 
 with the above commands the REST API application should succesfully run. The API will be ready for use. for more information on how to use the AIP please refer to the [documentation](https://github.com/ssahim/carbonusageproject/wiki). 
 
-## Challenges
 
-The task was about to be completed in few hours. but it really took me longer to complete because of the challenges in Afghanistan. I have only one hour of electricity in two days whic really frastrated me to complete this task. I was planning to complete the React part as well but with no electricity I was even challenge to complete the backend. 
